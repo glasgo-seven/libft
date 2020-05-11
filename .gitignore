@@ -1,0 +1,10 @@
+*.exe
+*.o
+*.txt
+
+*.h.*
+
+*main.*
+
+.log/
+.vscode/
