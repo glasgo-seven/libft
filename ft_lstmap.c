@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sanakin <sanakin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/01 16:25:30 by sanakin           #+#    #+#             */
-/*   Updated: 2020/05/13 14:15:51 by sanakin          ###   ########.fr       */
+/*   Created: 2020/05/14 15:17:45 by sanakin           #+#    #+#             */
+/*   Updated: 2020/05/14 15:25:07 by sanakin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	size_t	i;
-	char	*rt;
+	t_list	*list;
+	t_list	*map;
+	int		size;
+	int		i;
 
-	i = ft_strlen(s) + 1;
-	rt = (char*)s;
-	while (i > 0)
+	if (lst == NULL)
+		return (NULL);
+	size = ft_lstsize(lst);
+	list = lst;
+	while (i < size)
 	{
-		if (*(s + i) == (char)c)
-		{
-			rt = (char*)s + i;
-			return (rt);
-		}
-		i--;
+		ft_lstadd_back(map, ft_lstnew(f(list->content)));
+		list = list->next;
+		i++;
 	}
-	return (NULL);
+	return (map);
 }

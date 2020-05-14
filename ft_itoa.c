@@ -1,32 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sanakin <sanakin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/01 16:25:30 by sanakin           #+#    #+#             */
-/*   Updated: 2020/05/13 14:15:51 by sanakin          ###   ########.fr       */
+/*   Created: 2020/05/13 15:10:24 by sanakin           #+#    #+#             */
+/*   Updated: 2020/05/13 15:21:53 by sanakin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+char	*ft_itoa(int n)
 {
-	size_t	i;
-	char	*rt;
-
-	i = ft_strlen(s) + 1;
-	rt = (char*)s;
+	char	sign;
+	char	*str;
+	int		len;
+	int		i;
+	
+	sign = (n < 0 ? '-' : "");
+	str = "";
+	len = 0;
+	i = n;
 	while (i > 0)
 	{
-		if (*(s + i) == (char)c)
-		{
-			rt = (char*)s + i;
-			return (rt);
-		}
-		i--;
+		len++;
+		i /= 10;
 	}
-	return (NULL);
+	str = (char*)malloc((len + 1) * sizeof(char));
+	if (str == NULL)
+		return (NULL);
+	i = 0;
+	while (i < len)
+	{
+		*(str + i) = (char)(n % 10);
+		n /= 10;
+		i++;
+	}
+	*(str + i) = '\0';
+	return (str);
 }

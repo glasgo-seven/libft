@@ -1,23 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sanakin <sanakin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/01 16:24:03 by sanakin           #+#    #+#             */
-/*   Updated: 2020/05/13 14:31:17 by sanakin          ###   ########.fr       */
+/*   Created: 2020/05/13 14:41:13 by sanakin           #+#    #+#             */
+/*   Updated: 2020/05/13 14:48:58 by sanakin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	void	*array;
-
-	if (nmemb == 0)
+	char	*joined;
+	size_t	j_i;
+	size_t	s_i;
+	
+	joined = (char*)malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
+	if (joined == NULL)
 		return (NULL);
-	array = (void*)malloc(nmemb * size);
-	return (array);
+	j_i = 0;
+	s_i = 0;
+	while (*(s1 + s_i) != '\0')
+	{
+		*(joined + j_i) = *(s1 + s_i);
+		j_i++;
+		s_i++;
+	}
+	s_i = 0;
+	while (*(s1 + s_i) != '\0')
+	{
+		*(joined + j_i) = *(s1 + s_i);
+		j_i++;
+		s_i++;
+	}
+	*(joined + j_i) = '\0';
+	return (joined);
 }

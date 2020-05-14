@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sanakin <sanakin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/01 16:25:30 by sanakin           #+#    #+#             */
-/*   Updated: 2020/05/13 14:15:51 by sanakin          ###   ########.fr       */
+/*   Created: 2020/05/13 14:04:46 by sanakin           #+#    #+#             */
+/*   Updated: 2020/05/13 14:42:34 by sanakin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t	i;
-	char	*rt;
+	char	*sub_s;
 
-	i = ft_strlen(s) + 1;
-	rt = (char*)s;
-	while (i > 0)
+	sub_s = (char*)malloc(len * sizeof(char) + 1);
+	if (sub_s == NULL)
+		return (NULL);
+	i = start;
+	while (*(s + i) != '\0' && i < len)
 	{
-		if (*(s + i) == (char)c)
-		{
-			rt = (char*)s + i;
-			return (rt);
-		}
-		i--;
+		*(sub_s + i) = *(s + i);
+		i++;
 	}
-	return (NULL);
+	while (i < len + i)
+	{
+		*(sub_s + i) = '\0';
+		i++;
+	}
+	return (sub_s);
 }
