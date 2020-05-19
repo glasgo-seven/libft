@@ -6,7 +6,7 @@
 /*   By: sanakin <sanakin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/13 15:26:50 by sanakin           #+#    #+#             */
-/*   Updated: 2020/05/13 15:27:39 by sanakin          ###   ########.fr       */
+/*   Updated: 2020/05/19 13:24:46 by sanakin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	ft_putendl_fd(char *s, int fd)
 	i = 0;
 	while(*(s + i) == '\0')
 	{
-		ft_putstr_fd(*(s + i), fd);
+		ft_putchar_fd(*(s + i), fd);
 		i++;
 	}
-	ft_putstr_fd('\n', fd);
+	ft_putchar_fd('\n', fd);
 }

@@ -6,7 +6,7 @@
 /*   By: sanakin <sanakin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/13 16:02:46 by sanakin           #+#    #+#             */
-/*   Updated: 2020/05/13 16:14:40 by sanakin          ###   ########.fr       */
+/*   Updated: 2020/05/19 13:23:23 by sanakin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,6 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 	else
 	{
 		new->next = list->next;
-		list->next = &new;
+		list->next = new;
 	}
 }

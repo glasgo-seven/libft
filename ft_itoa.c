@@ -6,7 +6,7 @@
 /*   By: sanakin <sanakin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/13 15:10:24 by sanakin           #+#    #+#             */
-/*   Updated: 2020/05/13 15:21:53 by sanakin          ###   ########.fr       */
+/*   Updated: 2020/05/19 13:23:07 by sanakin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,14 @@
 
 char	*ft_itoa(int n)
 {
-	char	sign;
+	int		sign;
 	char	*str;
 	int		len;
 	int		i;
 	
-	sign = (n < 0 ? '-' : "");
-	str = "";
+	sign = 0;
+	if (n < 0)
+		sign = 1;
 	len = 0;
 	i = n;
 	while (i > 0)
@@ -28,10 +29,12 @@ char	*ft_itoa(int n)
 		len++;
 		i /= 10;
 	}
-	str = (char*)malloc((len + 1) * sizeof(char));
+	str = (char*)malloc((len + 1 + sign) * sizeof(char));
 	if (str == NULL)
 		return (NULL);
-	i = 0;
+	if (sign == 1)
+		*str = '-';
+	i = sign;
 	while (i < len)
 	{
 		*(str + i) = (char)(n % 10);

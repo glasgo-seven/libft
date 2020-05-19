@@ -6,7 +6,7 @@
 /*   By: sanakin <sanakin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/14 15:17:45 by sanakin           #+#    #+#             */
-/*   Updated: 2020/05/14 15:25:07 by sanakin          ###   ########.fr       */
+/*   Updated: 2020/05/19 13:24:00 by sanakin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*list;
-	t_list	*map;
+	t_list	**map;
 	int		size;
 	int		i;
 
-	if (lst == NULL)
+	if (lst == NULL || f == NULL || del == NULL)
 		return (NULL);
 	size = ft_lstsize(lst);
 	list = lst;

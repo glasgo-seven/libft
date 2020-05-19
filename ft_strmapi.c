@@ -6,7 +6,7 @@
 /*   By: sanakin <sanakin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/13 15:37:05 by sanakin           #+#    #+#             */
-/*   Updated: 2020/05/13 15:43:19 by sanakin          ###   ########.fr       */
+/*   Updated: 2020/05/19 13:25:44 by sanakin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	i = 0;
 	while (i < len)
 	{
-		//*(map + i) = f(i, *(map + i));
+		*(map + i) = f(i, *(map + i));
 		i++;
 	}
 	*(map + i) = '\0';

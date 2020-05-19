@@ -6,7 +6,7 @@
 /*   By: sanakin <sanakin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/13 15:22:40 by sanakin           #+#    #+#             */
-/*   Updated: 2020/05/13 15:24:17 by sanakin          ###   ########.fr       */
+/*   Updated: 2020/05/19 13:24:31 by sanakin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	ft_putchar_fd(char c, int fd)
 {
-	write(fd, c, 1);
+	write(fd, &c, 1);
 }
