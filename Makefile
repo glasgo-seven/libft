@@ -6,7 +6,7 @@
 #    By: sanakin <sanakin@student.21-school.ru>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/01 16:25:45 by sanakin           #+#    #+#              #
-#    Updated: 2020/05/20 12:19:54 by sanakin          ###   ########.fr        #
+#    Updated: 2020/05/20 12:23:13 by sanakin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,7 +55,7 @@ SRC_MAIN_ADD_STR =	ft_substr.c\
 SRC_MAIN_ADD_PUT =	ft_putchar_fd.c\
 					ft_putstr_fd.c\
 					ft_putendl_fd.c\
-					ft_putnbr.c
+					ft_putnbr_fd.c
 
 SRC_BONUS_LST =		ft_lstnew.c\
 					ft_lstadd_front.c\
