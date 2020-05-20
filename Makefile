@@ -6,7 +6,7 @@
 #    By: sanakin <sanakin@student.21-school.ru>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/01 16:25:45 by sanakin           #+#    #+#              #
-#    Updated: 2020/05/20 12:23:13 by sanakin          ###   ########.fr        #
+#    Updated: 2020/05/20 12:27:40 by sanakin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,14 +72,14 @@ all: $(NAME)
 $(NAME): main
 
 main:
-	$(COMPILER) -c $(FLAGS) $(SRC_MAIN_LIBC_MEM) $(SRC_MAIN_LIBC_STR) $(SRC_MAIN_LIBC_ETC) $(SRC_MAIN_LIBC_MAL) $(SRC_MAIN_ADD_STR) $(SRC_MAIN_ADD_PUT) $(INCLUDES)
-	ar rcs $(NAME) *.o
-	ranlib $(NAME)
+	@$(COMPILER) -c $(FLAGS) $(SRC_MAIN_LIBC_MEM) $(SRC_MAIN_LIBC_STR) $(SRC_MAIN_LIBC_ETC) $(SRC_MAIN_LIBC_MAL) $(SRC_MAIN_ADD_STR) $(SRC_MAIN_ADD_PUT) $(INCLUDES)
+	@ar rcs $(NAME) *.o
+	@ranlib $(NAME)
 
 bonus:
-	$(COMPILER) -c $(FLAGS) $(SRC_MAIN_LIBC_MEM) $(SRC_MAIN_LIBC_STR) $(SRC_MAIN_LIBC_ETC) $(SRC_MAIN_LIBC_MAL) $(SRC_MAIN_ADD_STR) $(SRC_MAIN_ADD_PUT) $(SRC_BONUS_LST) $(INCLUDES)
-	ar rcs $(NAME) *.o
-	ranlib $(NAME)
+	@$(COMPILER) -c $(FLAGS) $(SRC_MAIN_LIBC_MEM) $(SRC_MAIN_LIBC_STR) $(SRC_MAIN_LIBC_ETC) $(SRC_MAIN_LIBC_MAL) $(SRC_MAIN_ADD_STR) $(SRC_MAIN_ADD_PUT) $(SRC_BONUS_LST) $(INCLUDES)
+	@ar rcs $(NAME) *.o
+	@ranlib $(NAME)
 
 clean:
 	rm -f *.o

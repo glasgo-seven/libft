@@ -6,7 +6,7 @@
 /*   By: sanakin <sanakin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 12:23:27 by sanakin           #+#    #+#             */
-/*   Updated: 2020/05/20 12:24:39 by sanakin          ###   ########.fr       */
+/*   Updated: 2020/05/20 12:28:26 by sanakin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,7 @@
 
 char	**ft_split(char const *s, char c)
 {
+	if (s == NULL || c || NULL)
+		return (NULL);
 	return (NULL);
 }

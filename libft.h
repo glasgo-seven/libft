@@ -6,14 +6,14 @@
 /*   By: sanakin <sanakin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 16:25:41 by sanakin           #+#    #+#             */
-/*   Updated: 2020/05/20 12:24:52 by sanakin          ###   ########.fr       */
+/*   Updated: 2020/05/20 12:25:51 by sanakin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-//# include <unistd.h>
+# include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
 
