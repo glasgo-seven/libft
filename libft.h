@@ -6,7 +6,7 @@
 /*   By: sanakin <sanakin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 16:25:41 by sanakin           #+#    #+#             */
-/*   Updated: 2020/05/20 12:25:51 by sanakin          ###   ########.fr       */
+/*   Updated: 2020/05/21 15:18:10 by sanakin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
+
+# define MIN_INT -2147483648
+# define MAX_INT 2147483647
 
 typedef struct	s_list
 {

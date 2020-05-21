@@ -1,10 +1,9 @@
+*.a
 *.exe
+*.gch
 *.o
 *.txt
 
-*.h.*
-
 *main.*
 
-.log/
 .vscode/

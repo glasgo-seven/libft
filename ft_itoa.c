@@ -6,7 +6,7 @@
 /*   By: sanakin <sanakin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/13 15:10:24 by sanakin           #+#    #+#             */
-/*   Updated: 2020/05/19 13:23:07 by sanakin          ###   ########.fr       */
+/*   Updated: 2020/05/21 15:13:12 by sanakin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,13 @@ char	*ft_itoa(int n)
 		return (NULL);
 	if (sign == 1)
 		*str = '-';
-	i = sign;
-	while (i < len)
+	i = len;
+	*(str + i) = '\0';
+	while (i >= sign)
 	{
 		*(str + i) = (char)(n % 10);
 		n /= 10;
 		i++;
 	}
-	*(str + i) = '\0';
 	return (str);
 }
