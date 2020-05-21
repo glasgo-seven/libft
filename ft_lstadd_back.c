@@ -6,7 +6,7 @@
 /*   By: sanakin <sanakin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/13 16:21:49 by sanakin           #+#    #+#             */
-/*   Updated: 2020/05/19 13:23:17 by sanakin          ###   ########.fr       */
+/*   Updated: 2020/05/21 17:20:27 by sanakin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	{
 		last = ft_lstlast(list);
 		last->next = new;
+		new->next = NULL;
 	}
 }

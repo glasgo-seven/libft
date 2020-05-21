@@ -6,7 +6,7 @@
 /*   By: sanakin <sanakin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 16:25:27 by sanakin           #+#    #+#             */
-/*   Updated: 2020/05/19 13:26:25 by sanakin          ###   ########.fr       */
+/*   Updated: 2020/05/21 16:45:38 by sanakin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	j = 0;
 	correct = 0;
 	rt = (char*)haystack;
-	while (i <= ft_strlen(haystack) - ft_strlen(needle) && i < len)
+	while (i <= ft_strlen(haystack) - ft_strlen(needle))
 	{
 		j = 0;
 		correct = 0;

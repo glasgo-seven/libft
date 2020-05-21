@@ -6,7 +6,7 @@
 /*   By: sanakin <sanakin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/13 16:15:39 by sanakin           #+#    #+#             */
-/*   Updated: 2020/05/13 16:18:34 by sanakin          ###   ########.fr       */
+/*   Updated: 2020/05/21 18:14:48 by sanakin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ int		ft_lstsize(t_list *lst)
 		i++;
 		list = list->next;
 	}
-	return (i);
+	return (i++);
 }

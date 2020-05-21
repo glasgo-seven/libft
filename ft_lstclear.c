@@ -6,7 +6,7 @@
 /*   By: sanakin <sanakin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/14 15:10:40 by sanakin           #+#    #+#             */
-/*   Updated: 2020/05/14 15:16:27 by sanakin          ###   ########.fr       */
+/*   Updated: 2020/05/21 18:04:43 by sanakin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,11 @@
 void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
 	t_list	*list;
+	
 	list = *lst;
-	while (list->next)
-	{
-		del(list->content);
-		free(list);
-		list = list->content;
-	}
-	del(list->content);
-	free(list);
-	list = list->content;
-	lst = NULL;
+	del(list->content)
+	if (list->next != NULL)
+		ft_lstclear(list->next, del);
+	free(*list);
+	list = NULL;
 }

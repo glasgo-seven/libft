@@ -6,7 +6,7 @@
 /*   By: sanakin <sanakin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/13 14:41:13 by sanakin           #+#    #+#             */
-/*   Updated: 2020/05/13 14:48:58 by sanakin          ###   ########.fr       */
+/*   Updated: 2020/05/21 16:57:01 by sanakin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		s_i++;
 	}
 	s_i = 0;
-	while (*(s1 + s_i) != '\0')
+	while (*(s2 + s_i) != '\0')
 	{
-		*(joined + j_i) = *(s1 + s_i);
+		*(joined + j_i) = *(s2 + s_i);
 		j_i++;
 		s_i++;
 	}

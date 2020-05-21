@@ -6,7 +6,7 @@
 /*   By: sanakin <sanakin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/03 15:52:13 by sanakin           #+#    #+#             */
-/*   Updated: 2020/05/08 13:55:07 by sanakin          ###   ########.fr       */
+/*   Updated: 2020/05/21 18:24:53 by sanakin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 		{
 			*(n_dest + i) = *(n_src + i);
 			if (*(n_src + i) == (unsigned char)c)
-				return (n_src + i + 1);
+				return (n_dest + i + 1);
 			i++;
 		}
 	return (NULL);
