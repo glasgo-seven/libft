@@ -6,7 +6,7 @@
 /*   By: sanakin <sanakin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/13 15:28:55 by sanakin           #+#    #+#             */
-/*   Updated: 2020/05/21 15:24:50 by sanakin          ###   ########.fr       */
+/*   Updated: 2020/05/22 14:14:32 by sanakin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_putnbr_fd(int n, int fd)
 		ft_putchar_fd('-', fd);
 		n = -n;
 	}
-	if (n < 10)
+	if (n > 0 && n < 10)
 		ft_putchar_fd(n + '0', fd);
 	else
 	{

@@ -6,7 +6,7 @@
 /*   By: sanakin <sanakin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/14 15:17:45 by sanakin           #+#    #+#             */
-/*   Updated: 2020/05/19 13:33:26 by sanakin          ###   ########.fr       */
+/*   Updated: 2020/05/22 15:05:14 by sanakin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	map = (void*)malloc(size);
 	while (i < size)
 	{
-		ft_lstadd_back(map, ft_lstnew(f(list->content)));
+		ft_lstadd_back(*map, ft_lstnew(f(list->content)));
 		list = list->next;
 		i++;
 	}
-	return (*map);
+	return (map);
 }
