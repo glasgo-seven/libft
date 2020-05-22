@@ -24,6 +24,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	size = ft_lstsize(lst);
 	list = lst;
 	map = (void*)malloc(size);
+	i = 0;
 	while (i < size)
 	{
 		ft_lstadd_back(map, ft_lstnew(f(list->content)));
