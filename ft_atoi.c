@@ -6,7 +6,7 @@
 /*   By: sanakin <sanakin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/02 12:47:42 by sanakin           #+#    #+#             */
-/*   Updated: 2020/05/22 13:27:33 by sanakin          ###   ########.fr       */
+/*   Updated: 2020/05/22 15:12:04 by sanakin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int		ft_atoi(char *str)
 	{
 		if (len > 10 || (len == 9 && sign == -1 && (str[c] - '0' > 8)) || 
 						(len == 9 && sign == 1 && (str[c] - '0' > 7)))
-			return (sign == -1 ? 0 : sign)
+			return (sign == -1 ? 0 : sign);
 		rt = rt * 10 + (str[c] - '0');
 		c++;
 		len++;
