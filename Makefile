@@ -6,7 +6,7 @@
 #    By: sanakin <sanakin@student.21-school.ru>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/01 16:25:45 by sanakin           #+#    #+#              #
-#    Updated: 2020/05/20 12:27:40 by sanakin          ###   ########.fr        #
+#    Updated: 2020/05/22 16:54:48 by sanakin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,7 +77,7 @@ main:
 	@ranlib $(NAME)
 
 bonus:
-	@$(COMPILER) -c $(FLAGS) $(SRC_MAIN_LIBC_MEM) $(SRC_MAIN_LIBC_STR) $(SRC_MAIN_LIBC_ETC) $(SRC_MAIN_LIBC_MAL) $(SRC_MAIN_ADD_STR) $(SRC_MAIN_ADD_PUT) $(SRC_BONUS_LST) $(INCLUDES)
+	@$(COMPILER) -c $(FLAGS) $(SRC_BONUS_LST) $(INCLUDES)
 	@ar rcs $(NAME) *.o
 	@ranlib $(NAME)
 

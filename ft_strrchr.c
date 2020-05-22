@@ -6,7 +6,7 @@
 /*   By: sanakin <sanakin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 16:25:30 by sanakin           #+#    #+#             */
-/*   Updated: 2020/05/22 13:57:39 by sanakin          ###   ########.fr       */
+/*   Updated: 2020/05/22 15:17:07 by sanakin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strrchr(const char *s, int c)
 
 	i = ft_strlen(s) + 1;
 	rt = (char*)s;
-	while (i >= 0)
+	while (i != 0)
 	{
 		if (*(s + i) == (char)c)
 		{
@@ -28,5 +28,10 @@ char	*ft_strrchr(const char *s, int c)
 		}
 		i--;
 	}
+	if (*(s + i) == (char)c)
+		{
+			rt = (char*)s + i;
+			return (rt);
+		}
 	return (NULL);
 }
