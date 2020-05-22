@@ -21,7 +21,7 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 		list = new;
 	else
 	{
-		new->next = list;
-		list= new;
+		new->next = list->next;
+		list->next = &new;
 	}
 }
