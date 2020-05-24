@@ -19,7 +19,7 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n)
 	unsigned char	*n_s2;
 
 	if (n == 0)
-		return (n);
+		return (0);
 	i = 0;
 	n_s1 = (unsigned char*)s1;
 	n_s2 = (unsigned char*)s2;
@@ -30,5 +30,7 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n)
 		else
 			return (*(n_s1 + i) - *(n_s2 + i));
 	}
-	return (*(n_s1 + i - 1) - *(n_s2 + i - 1));
+	if (i == n)
+		return (*(n_s1 + i - 1) - *(n_s2 + i - 1));
+	return (*(n_s1 + i) - *(n_s2 + i));
 }

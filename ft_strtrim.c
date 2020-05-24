@@ -36,25 +36,23 @@ char		*ft_strtrim(char const *s1, char const *set)
 	i = 0;
 	start = 0;
 	finish = 0;
-	trimmed = (char*)s1;
-	while (isinset(set, *(s1 + i)) == 1 && s1)
+	trimmed = NULL;
+	while (isinset(set, *(s1 + i)) == 1 && *(s1 + i) != '\0')
 	{
 		i++;
 	}
 	start = i;
-	i = ft_strlen(s1) - 1;
-	while (isinset(set, *(s1 + i)) == 1 && s1)
+	i = ft_strlen(s1);
+	while (isinset(set, *(s1 + i - 1)) == 1 && i > 0)
 	{
 		i--;
 	}
 	finish = i;
+	if (finish < start)
+		return ("");
 	trimmed = (char*)malloc((finish - start + 2) * sizeof(char));
 	if (trimmed == NULL)
-	{
-		if (finish < start)
-			return ("");
 		return (NULL);
-	}
 	i = start;
 	while (i <= finish)
 	{
