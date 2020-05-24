@@ -6,7 +6,7 @@
 /*   By: sanakin <sanakin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 12:23:27 by sanakin           #+#    #+#             */
-/*   Updated: 2020/05/23 19:39:12 by sanakin          ###   ########.fr       */
+/*   Updated: 2020/05/24 17:18:23 by sanakin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ static char	**get_words_len(char const *s, char c, int words)
 
 	i = 0;
 	split = (char**)malloc(words + 1);
+	if (split == NULL)
+		return (NULL);
 	len = 0;
 	word = 0;
 	while (*(s + i) != '\0')
@@ -48,6 +50,8 @@ static char	**get_words_len(char const *s, char c, int words)
 			i++;
 		}
 		split[word] = (char*)malloc(len + 1);
+		if (split[word] == NULL)
+			return (NULL);
 		word++;
 		i++;
 	}
@@ -79,6 +83,6 @@ char	**ft_split(char const *s, char c)
 		word++;
 		i++;
 	}
-	split[word] = '\0';
+	split[word] = NULL;
 	return (split);
 }

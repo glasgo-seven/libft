@@ -6,7 +6,7 @@
 /*   By: sanakin <sanakin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/03 17:33:28 by sanakin           #+#    #+#             */
-/*   Updated: 2020/05/23 16:38:53 by sanakin          ###   ########.fr       */
+/*   Updated: 2020/05/24 17:33:47 by sanakin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,12 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	i = 0;
 	if (size != 0)
 	{
-		while (i < size - ft_strlen(dest) - 1)
+		while (i < size - ft_strlen(dest) - 1 && *(src + i) != '\0')
 		{
 			*(dest + len_dest + i) = *(src + i);
 			i++;
 		}
 		*(dest + len_dest + i) = '\0';
 	}
-	return (i);
+	return (ft_strlen(dest));
 }
