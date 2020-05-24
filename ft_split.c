@@ -18,12 +18,19 @@ static int	get_word_count(char const *s, char c)
 	int		words;
 
 	i = 0;
-	words = 1;
+	words = (*s == c ? 0 : 1);
+	while (*(s + i) != '\0' && *(s + i) == c)
+		i++;
+	if (*(s + i) == '\0')
+		return (0);
 	while (*(s + i) != '\0')
 	{
 		if (*(s + i) == c)
 			words++;
-		i++;
+		while (*(s + i) == c && *(s + i) != '\0')
+			i++;
+		if (*(s + i) != '\0')
+			i++;
 	}
 	return (words);
 }
@@ -49,10 +56,13 @@ static char	**get_words_len(char const *s, char c, int words)
 			len++;
 			i++;
 		}
-		split[word] = (char*)malloc(sizeof(char*) * (len + 1));
-		if (split[word] == NULL)
-			return (NULL);
-		word++;
+		if (len != 0)
+		{
+			split[word] = (char*)malloc(sizeof(char) * (len + 1));
+			if (split[word] == NULL)
+				return (NULL);
+			word++;
+		}
 		if (*(s + i) == c)
 			i++;
 	}
@@ -68,9 +78,14 @@ char	**ft_split(char const *s, char c)
 	int		word;
 
 	words = get_word_count(s, c);
+	split = NULL;
+	if (words == 0)
+	{
+		split = (char**)malloc(sizeof(char*) * 1);
+		split[0] = NULL;
+		return (split);
+	}
 	split = get_words_len(s, c, words);
-	if (split == NULL)
-		return (NULL);
 	i = 0;
 	j = 0;
 	word = 0;
@@ -83,9 +98,13 @@ char	**ft_split(char const *s, char c)
 			j++;
 			i++;
 		}
-		split[word][j] = '\0';
-		word++;
-		i++;
+		if (j != 0)
+		{
+			split[word][j] = '\0';
+			word++;
+		}
+		if (*(s + i) == c)
+			i++;
 	}
 	split[word] = NULL;
 	return (split);
