@@ -19,7 +19,8 @@ char		*ft_itoa(int n)
 	int		i;
 	int		len;
 
-	n = (int)n;
+	if (n == MIN_INT)
+		return (ft_strdup("-2147483648"));
 	i = n;
 	len = 0;
 	if (n == 0)
