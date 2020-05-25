@@ -6,7 +6,7 @@
 /*   By: sanakin <sanakin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/13 14:50:39 by sanakin           #+#    #+#             */
-/*   Updated: 2020/05/24 17:38:21 by sanakin          ###   ########.fr       */
+/*   Updated: 2020/05/25 19:27:31 by sanakin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ char		*ft_strtrim(char const *s1, char const *set)
 	}
 	finish = i;
 	if (finish < start)
-		return ("");
+		return (NULL);
 	trimmed = (char*)malloc((finish - start + 2) * sizeof(char));
 	if (trimmed == NULL)
 		return (NULL);
