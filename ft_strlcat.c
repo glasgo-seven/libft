@@ -6,57 +6,64 @@
 /*   By: sanakin <sanakin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/03 17:33:28 by sanakin           #+#    #+#             */
-/*   Updated: 2020/05/24 17:33:47 by sanakin          ###   ########.fr       */
+/*   Updated: 2020/05/25 15:12:38 by sanakin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-/*
-The strlcpy() and strlcat() functions copy and concatenate strings respectively.
-They are designed to be safer, more consistent, and less error prone replacements
-for strncpy(3) and strncat(3). Unlike those functions, strlcpy() and strlcat()
-take the full size of the buffer (not just the length) and guarantee to NUL-terminate the result
-(as long as size is larger than 0 or, in the case of strlcat(), as long as there is at least one byte free in dst).
-Note that a byte for the NUL should be included in size. Also note that strlcpy() and strlcat()
-only operate on true ''C'' strings. This means that for strlcpy() src must be NUL-terminated and for strlcat()
-both src and dst must be NUL-terminated.
-
-The strlcpy() function copies up to size - 1 characters from the NUL-terminated string src to dst,
-NUL-terminating the result.
-
-The strlcat() function appends the NUL-terminated string src to the end of dst.
-It will append at most size - strlen(dst) - 1 bytes, NUL-terminating the result.
-
-
-Return Values
-The strlcpy() and strlcat() functions return the total length of the string they tried to create.
-For strlcpy() that means the length of src.
-For strlcat() that means the initial length of dst plus the length of src.
-While this may seem somewhat confusing, it was done to make truncation detection simple.
-
-Note, however, that if strlcat() traverses size characters without finding a NUL,
-the length of the string is considered to be size and the destination string will not be NUL-terminated
-(since there was no space for the NUL). This keeps strlcat() from running off the end of a string.
-In practice this should not happen (as it means that either size is incorrect or that dst is not a proper ''C'' string).
-The check exists to prevent potential security problems in incorrect code.
-*/
 
 #include "libft.h"
 
 size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
-	size_t	len_dest;
-	size_t	i;
+	/*const char	*d;
+	const char	*s;
+	size_t		n;
+	size_t		dlen;
 
-	len_dest = ft_strlen(dest);
-	i = 0;
-	if (size != 0)
+	d = dest;
+	s = (char*)src;
+	n = size;
+	while (n-- != 0 && *dst != '\0')
+		dst++;
+	dlen = dest - odst;
+	n = size - dlen;
+	if (n == 0)
+		return (dlen + ft_strlen(src));
+	while (*src != '\0')
 	{
-		while (i < size - ft_strlen(dest) - 1 && *(src + i) != '\0')
+		if (n != 0)
 		{
-			*(dest + len_dest + i) = *(src + i);
-			i++;
+			*dst++ = *src;
+			n--;
 		}
-		*(dest + len_dest + i) = '\0';
+		src++;
 	}
-	return (ft_strlen(dest));
+	*dst = '\0';
+	return (dlen + (src - s));*/
+
+	size_t	n;
+	size_t	i;
+	size_t	dlen;
+
+	n = size;
+	i = 0;
+	while (n != 0 && *(dest + i) != '\0')
+	{
+		n--;
+		i++;
+	}
+	dlen = i;
+	n = size - i;
+	if (n == 0)
+		return (i + ft_strlen(src));
+	while (*(src + i - dlen) != '\0')
+	{
+		if (n != 0)
+		{
+			*(dest + i) = *(src + i - dlen);
+			n--;
+		}
+		i++;
+	}
+	*(dest + i) = '\0';
+	return (dlen + i);
 }

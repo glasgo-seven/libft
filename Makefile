@@ -6,7 +6,7 @@
 #    By: sanakin <sanakin@student.21-school.ru>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/01 16:25:45 by sanakin           #+#    #+#              #
-#    Updated: 2020/05/23 19:42:28 by sanakin          ###   ########.fr        #
+#    Updated: 2020/05/25 16:00:12 by sanakin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,47 +17,43 @@ INCLUDES = libft.h
 COMPILER = gcc
 FLAGS = -Wall -Wextra -Werror
 
-SRC_MAIN_LIBC_MEM =	ft_memset.c\
+SRC_MAIN_LIBC =		ft_memset.c\
 					ft_bzero.c\
 					ft_memcpy.c\
 					ft_memccpy.c\
 					ft_memmove.c\
 					ft_memchr.c\
-					ft_memcmp.c
-
-SRC_MAIN_LIBC_STR =	ft_strlen.c\
+					ft_memcmp.c\
+					ft_strlen.c\
 					ft_strlcpy.c\
 					ft_strlcat.c\
 					ft_strchr.c\
 					ft_strrchr.c\
 					ft_strnstr.c\
-					ft_strncmp.c
-
-SRC_MAIN_LIBC_ETC =	ft_atoi.c\
+					ft_strncmp.c\
+					ft_atoi.c\
 					ft_isalpha.c\
 					ft_isdigit.c\
 					ft_isalnum.c\
 					ft_isascii.c\
 					ft_isprint.c\
 					ft_toupper.c\
-					ft_tolower.c
-
-SRC_MAIN_LIBC_MAL =	ft_calloc.c\
+					ft_tolower.c\
+					ft_calloc.c\
 					ft_strdup.c
 
-SRC_MAIN_ADD_STR =	ft_substr.c\
+SRC_MAIN_ADD =		ft_substr.c\
 					ft_strjoin.c\
 					ft_strtrim.c\
 					ft_split.c\
 					ft_itoa.c\
-					ft_strmapi.c
-
-SRC_MAIN_ADD_PUT =	ft_putchar_fd.c\
+					ft_strmapi.c\
+					ft_putchar_fd.c\
 					ft_putstr_fd.c\
 					ft_putendl_fd.c\
 					ft_putnbr_fd.c
 
-SRC_BONUS_LST =		ft_lstnew.c\
+SRC_BONUS =			ft_lstnew.c\
 					ft_lstadd_front.c\
 					ft_lstsize.c\
 					ft_lstlast.c\
@@ -67,30 +63,41 @@ SRC_BONUS_LST =		ft_lstnew.c\
 					ft_lstiter.c\
 					ft_lstmap.c
 
+OBJ_MAIN = $(SRC_MAIN_LIBC:.c=.o)
+OBJ_MAIN += $(SRC_MAIN_ADD:.c=.o)
+OBJ_BONUS = $(SRC_BONUS:.c=.o)
+
+
 all: $(NAME)
 
 $(NAME): main
 
-main:
-	@$(COMPILER) -c $(FLAGS) $(SRC_MAIN_LIBC_MEM) $(SRC_MAIN_LIBC_STR) $(SRC_MAIN_LIBC_ETC) $(SRC_MAIN_LIBC_MAL) $(SRC_MAIN_ADD_STR) $(SRC_MAIN_ADD_PUT) $(INCLUDES)
-	@ar rcs $(NAME) *.o
-	@ranlib $(NAME)
+main: $(OBJ_MAIN) $(INCLDUES)
+	ar rc $(NAME) $?
+	ranlib $(NAME)
 
-bonus:
-	@$(COMPILER) -c $(FLAGS) $(SRC_MAIN_LIBC_MEM) $(SRC_MAIN_LIBC_STR) $(SRC_MAIN_LIBC_ETC) $(SRC_MAIN_LIBC_MAL) $(SRC_MAIN_ADD_STR) $(SRC_MAIN_ADD_PUT)  $(SRC_BONUS_LST) $(INCLUDES)
-	@ar rcs $(NAME) *.o
-	@ranlib $(NAME)
+bonus: $(OBJ_BONUS) $(INCLDUES)
+	ar rc $(NAME) $?
+	ranlib $(NAME)
+
+%.o: %.c $(INCLDUES)
+	$(COMPILER) -c $(FLAGS) $< -o $@
 
 clean:
-	rm -f *.o
+	rm -f $(OBJ_MAIN)
+	rm -f $(OBJ_BONUS)
 
 fclean: clean
 	rm -f $(NAME)
+	rm -f libft.so
 
 re: fclean all
 
+#so:
+#	$(COMPILER) -fPIC $(FLAGS) -c *.c $(INCLDUES)
+#	$(COMPILER) -shared -o libft.so *.o 
+
 so:
-	$(COMPILER) -fPIC $(FLAGS) -c *.c $(INCLDUES)
-	$(COMPILER) -shared -o libft.so *.o 
+	$(COMPILER) -fPIC -shared $(OBJ_MAIN) $(OBJ_BONUS) -o libft.so
 
 .PHONY: all clean fclean re so
