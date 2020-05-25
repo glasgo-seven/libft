@@ -6,7 +6,7 @@
 /*   By: sanakin <sanakin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/13 14:50:39 by sanakin           #+#    #+#             */
-/*   Updated: 2020/05/25 19:27:31 by sanakin          ###   ########.fr       */
+/*   Updated: 2020/05/25 20:30:32 by sanakin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,19 +42,19 @@ char		*ft_strtrim(char const *s1, char const *set)
 		i++;
 	}
 	start = i;
-	i = ft_strlen(s1);
-	while (isinset(set, *(s1 + i - 1)) == 1 && i > 0)
+	i = ft_strlen(s1) - 1;
+	while (isinset(set, *(s1 + i)) == 1 && i != 0)
 	{
 		i--;
 	}
-	finish = i;
+	finish = i + 1;
 	if (finish < start)
 		return (NULL);
-	trimmed = (char*)malloc((finish - start + 2) * sizeof(char));
+	trimmed = (char*)malloc((finish - start + 1) * sizeof(char));
 	if (trimmed == NULL)
 		return (NULL);
 	i = start;
-	while (i <= finish)
+	while (i < finish)
 	{
 		*(trimmed + (i - start)) = *(s1 + i);
 		i++;
