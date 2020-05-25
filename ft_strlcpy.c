@@ -14,7 +14,7 @@
 
 size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
-	/*char		*d;
+/*	char		*d;
 	const char	*s;
 	size_t		n;
 
@@ -34,20 +34,22 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 		while (*s)
 			s++;
 	}
-	return (s - src - 1);*/
-	
+	return (s - src - 1);
+	*/
 	size_t	i;
 	size_t	n;
 
+	i = 0;
 	n = size;
 	if (n != 0)
 	{
-		while (n != 0)
+		while (n != 1)
 		{
 			*(dest + i) = *(src + i);
 			if (*(dest + i) == '\0')
 				break;
 			i++;
+			n--;
 		}
 		n--;
 	}
@@ -58,5 +60,5 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 		while (*(src + i))
 			i++;
 	}
-	return (i - 1);
+	return (i); 
 }

@@ -11,10 +11,10 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-
+#include <stdio.h>
 size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
-	/*const char	*d;
+/*	const char	*d;
 	const char	*s;
 	size_t		n;
 	size_t		dlen;
@@ -22,22 +22,22 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	d = dest;
 	s = (char*)src;
 	n = size;
-	while (n-- != 0 && *dst != '\0')
-		dst++;
-	dlen = dest - odst;
+	while (n-- != 0 && *dest != '\0')
+		dest++;
+	dlen = dest - d;
 	n = size - dlen;
-	if (n == 0)
+	if (n-- == 0)
 		return (dlen + ft_strlen(src));
 	while (*src != '\0')
 	{
 		if (n != 0)
 		{
-			*dst++ = *src;
+			*dest++ = *src;
 			n--;
 		}
 		src++;
 	}
-	*dst = '\0';
+	*dest = '\0';
 	return (dlen + (src - s));*/
 
 	size_t	n;
@@ -53,7 +53,7 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	}
 	dlen = i;
 	n = size - i;
-	if (n == 0)
+	if (n-- == 0)
 		return (i + ft_strlen(src));
 	while (*(src + i - dlen) != '\0')
 	{
@@ -62,8 +62,10 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 			*(dest + i) = *(src + i - dlen);
 			n--;
 		}
+		else
+			break;
 		i++;
 	}
 	*(dest + i) = '\0';
-	return (dlen + i);
+	return (dlen + ft_strlen(src));
 }

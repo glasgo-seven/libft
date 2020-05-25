@@ -72,15 +72,15 @@ all: $(NAME)
 
 $(NAME): main
 
-main: $(OBJ_MAIN) $(INCLDUES)
+main: $(OBJ_MAIN) $(INCLUDES)
 	ar rc $(NAME) $?
 	ranlib $(NAME)
 
-bonus: $(OBJ_BONUS) $(INCLDUES)
+bonus: $(OBJ_BONUS) $(INCLUDES)
 	ar rc $(NAME) $?
 	ranlib $(NAME)
 
-%.o: %.c $(INCLDUES)
+%.o: %.c $(INCLUDES)
 	$(COMPILER) -c $(FLAGS) $< -o $@
 
 clean:
@@ -94,7 +94,7 @@ fclean: clean
 re: fclean all
 
 #so:
-#	$(COMPILER) -fPIC $(FLAGS) -c *.c $(INCLDUES)
+#	$(COMPILER) -fPIC $(FLAGS) -c *.c $(INCLUDES)
 #	$(COMPILER) -shared -o libft.so *.o 
 
 so:
