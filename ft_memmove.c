@@ -6,7 +6,7 @@
 /*   By: sanakin <sanakin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/03 16:22:45 by sanakin           #+#    #+#             */
-/*   Updated: 2020/05/08 13:55:43 by sanakin          ###   ########.fr       */
+/*   Updated: 2020/05/26 18:24:25 by sanakin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	unsigned char	*n_src;
 	unsigned char	*temp;
 	size_t			i;
-	
+
 	if (dest == NULL && src == NULL)
 		return (NULL);
 	n_dest = (unsigned char*)dest;

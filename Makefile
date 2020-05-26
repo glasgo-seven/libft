@@ -6,7 +6,7 @@
 #    By: sanakin <sanakin@student.21-school.ru>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/01 16:25:45 by sanakin           #+#    #+#              #
-#    Updated: 2020/05/25 16:00:12 by sanakin          ###   ########.fr        #
+#    Updated: 2020/05/26 17:37:39 by sanakin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,13 +70,11 @@ OBJ_BONUS = $(SRC_BONUS:.c=.o)
 
 all: $(NAME)
 
-$(NAME): main
-
-main: $(OBJ_MAIN) $(INCLUDES)
+$(NAME): $(OBJ_MAIN)
 	ar rc $(NAME) $?
 	ranlib $(NAME)
 
-bonus: $(OBJ_BONUS) $(INCLUDES)
+bonus: $(OBJ_BONUS)
 	ar rc $(NAME) $?
 	ranlib $(NAME)
 

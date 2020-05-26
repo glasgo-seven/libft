@@ -6,7 +6,7 @@
 /*   By: sanakin <sanakin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/13 14:50:39 by sanakin           #+#    #+#             */
-/*   Updated: 2020/05/25 20:30:32 by sanakin          ###   ########.fr       */
+/*   Updated: 2020/05/26 18:54:08 by sanakin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,26 @@ static int	isinset(char const *set, char c)
 	return (0);
 }
 
+int			find_start(char const *s1, char const *set)
+{
+	size_t	i;
+
+	i = 0;
+	while (isinset(set, *(s1 + i)) == 1 && *(s1 + i) != '\0')
+		i++;
+	return (i);
+}
+
+int			find_finish(char const *s1, char const *set)
+{
+	size_t	i;
+
+	i = ft_strlen(s1) - 1;
+	while (isinset(set, *(s1 + i)) == 1 && i != 0)
+		i--;
+	return (i + 1);
+}
+
 char		*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	i;
@@ -37,17 +57,8 @@ char		*ft_strtrim(char const *s1, char const *set)
 	start = 0;
 	finish = 0;
 	trimmed = NULL;
-	while (isinset(set, *(s1 + i)) == 1 && *(s1 + i) != '\0')
-	{
-		i++;
-	}
-	start = i;
-	i = ft_strlen(s1) - 1;
-	while (isinset(set, *(s1 + i)) == 1 && i != 0)
-	{
-		i--;
-	}
-	finish = i + 1;
+	start = find_start(s1, set);
+	finish = find_finish(s1, set);
 	if (finish < start)
 		return (ft_strdup(""));
 	trimmed = (char*)malloc((finish - start + 1) * sizeof(char));

@@ -6,7 +6,7 @@
 /*   By: sanakin <sanakin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 16:25:23 by sanakin           #+#    #+#             */
-/*   Updated: 2020/05/24 17:04:21 by sanakin          ###   ########.fr       */
+/*   Updated: 2020/05/26 18:29:51 by sanakin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	size_t		i;
+	size_t			i;
 	unsigned char	*n_s1;
 	unsigned char	*n_s2;
 

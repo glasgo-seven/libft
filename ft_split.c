@@ -6,7 +6,7 @@
 /*   By: sanakin <sanakin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 12:23:27 by sanakin           #+#    #+#             */
-/*   Updated: 2020/05/26 17:15:42 by sanakin          ###   ########.fr       */
+/*   Updated: 2020/05/26 18:59:12 by sanakin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ static char	**get_words_len(char const *s, char c, int words)
 	return (split);
 }
 
-char	**ft_split(char const *s, char c)
+char		**ft_split(char const *s, char c)
 {
 	char	**split;
 	int		words;

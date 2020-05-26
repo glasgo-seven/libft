@@ -6,7 +6,7 @@
 /*   By: sanakin <sanakin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/06 13:43:42 by sanakin           #+#    #+#             */
-/*   Updated: 2020/05/07 14:59:18 by sanakin          ###   ########.fr       */
+/*   Updated: 2020/05/26 18:24:06 by sanakin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,3 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n)
 	}
 	return (*(n_s1 + i - 1) - *(n_s2 + i - 1));
 }
-
