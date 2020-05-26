@@ -25,7 +25,7 @@ static int	get_word_count(char const *s, char c)
 		return (0);
 	while (*(s + i) != '\0')
 	{
-		if (*(s + i) == c)
+		if (*(s + i) == c || (*(s + i) != c && *(s + i + 1) == '\0'))
 			words++;
 		while (*(s + i) == c && *(s + i) != '\0')
 			i++;

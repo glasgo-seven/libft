@@ -17,20 +17,20 @@ char	*ft_strrchr(const char *s, int c)
 	size_t	i;
 	char	*rt;
 
-	i = ft_strlen(s) + 1;
+	i = ft_strlen(s);
 	rt = (char*)s;
 	while (i != 0)
 	{
 		if (*(s + i) == (char)c)
 		{
-			rt = (char*)s + i;
+			rt = (char*)(s + i);
 			return (rt);
 		}
 		i--;
 	}
 	if (*(s + i) == (char)c)
 	{
-		rt = (char*)s + i;
+		rt = (char*)(s + i);
 		return (rt);
 	}
 	return (NULL);

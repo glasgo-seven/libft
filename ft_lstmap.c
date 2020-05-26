@@ -19,7 +19,7 @@ t_list	*ft_lstmap(t_list *l, void *(*f)(void *), void (*del)(void *))
 	t_list	*item;
 	t_list	*map;
 
-	if (l == NULL || f == NULL || del == NULL)
+	if (l == NULL || f == NULL)
 		return (NULL);
 	item = NULL;
 	map = NULL;
