@@ -6,7 +6,7 @@
 /*   By: sanakin <sanakin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/13 15:10:24 by sanakin           #+#    #+#             */
-/*   Updated: 2020/05/24 19:02:58 by sanakin          ###   ########.fr       */
+/*   Updated: 2020/05/26 17:16:56 by sanakin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ char		*ft_itoa(int n)
 		n = -n;
 	}
 	str = (char*)malloc(sign + len + 1);
+	if (str == NULL)
+		return (NULL);
 	if (sign == 1)
 		*(str) = '-';
 	i = sign + len - 1;

@@ -6,7 +6,7 @@
 /*   By: sanakin <sanakin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/14 15:14:11 by sanakin           #+#    #+#             */
-/*   Updated: 2020/05/14 15:19:16 by sanakin          ###   ########.fr       */
+/*   Updated: 2020/05/26 17:24:23 by sanakin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
 	t_list	*list;
 	
+	if (lst == NULL || f == NULL)
+		return (NULL);
 	list = lst;
 	while (list->next)
 	{

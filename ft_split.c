@@ -6,7 +6,7 @@
 /*   By: sanakin <sanakin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 12:23:27 by sanakin           #+#    #+#             */
-/*   Updated: 2020/05/24 17:18:23 by sanakin          ###   ########.fr       */
+/*   Updated: 2020/05/26 17:15:42 by sanakin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,8 @@ char	**ft_split(char const *s, char c)
 		return (split);
 	}
 	split = get_words_len(s, c, words);
+	if (split == NULL)
+		return (NULL);
 	i = 0;
 	j = 0;
 	word = 0;
