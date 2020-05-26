@@ -6,7 +6,7 @@
 /*   By: sanakin <sanakin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/13 15:24:40 by sanakin           #+#    #+#             */
-/*   Updated: 2020/05/26 17:22:35 by sanakin          ###   ########.fr       */
+/*   Updated: 2020/05/26 17:29:49 by sanakin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_putstr_fd(char *s, int fd)
 	size_t	i;
 
 	if (s == NULL)
-		return (NULL);
+		return ;
 	i = 0;
 	while(*(s + i) != '\0')
 	{
