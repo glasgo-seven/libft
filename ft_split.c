@@ -43,8 +43,7 @@ static char	**get_words_len(char const *s, char c, int words)
 	int		word;
 
 	i = 0;
-	split = (char**)malloc(sizeof(char*) * (words + 1));
-	if (split == NULL)
+	if (!(split = (char**)malloc(sizeof(char*) * (words + 1))))
 		return (NULL);
 	len = 0;
 	word = 0;
@@ -57,59 +56,57 @@ static char	**get_words_len(char const *s, char c, int words)
 			i++;
 		}
 		if (len != 0)
-		{
-			split[word] = (char*)malloc(sizeof(char) * (len + 1));
-			if (split[word] == NULL)
+			if (!(split[word++] = (char*)malloc(sizeof(char) * (len + 1))))
 				return (NULL);
-			word++;
-		}
 		if (*(s + i) == c)
 			i++;
 	}
 	return (split);
 }
 
-char		**ft_split(char const *s, char c)
+static char	**return_zero(void)
 {
 	char	**split;
-	int		words;
+
+	if (!(split = (char**)malloc(sizeof(char*) * 1)))
+		return (NULL);
+	split[0] = NULL;
+	return (split);
+}
+
+static void	set_words(char **split, char const *s, char c)
+{
 	int		i;
 	int		j;
-	int		word;
+	int		words;
 
-	if (s == NULL)
-		return (NULL);
-	words = get_word_count(s, c);
-	split = NULL;
-	if (words == 0)
-	{
-		split = (char**)malloc(sizeof(char*) * 1);
-		split[0] = NULL;
-		return (split);
-	}
-	split = get_words_len(s, c, words);
-	if (split == NULL)
-		return (NULL);
 	i = 0;
 	j = 0;
-	word = 0;
+	words = 0;
 	while (*(s + i) != '\0')
 	{
 		j = 0;
 		while (*(s + i) != c && *(s + i) != '\0')
-		{
-			split[word][j] = *(s + i);
-			j++;
-			i++;
-		}
+			split[words][j++] = *(s + i++);
 		if (j != 0)
-		{
-			split[word][j] = '\0';
-			word++;
-		}
+			split[words++][j] = '\0';
 		if (*(s + i) == c)
 			i++;
 	}
-	split[word] = NULL;
+	split[words] = NULL;
+}
+
+char		**ft_split(char const *s, char c)
+{
+	char	**split;
+
+	if (s == NULL)
+		return (NULL);
+	split = NULL;
+	if (get_word_count(s, c) == 0)
+		return (return_zero());
+	if (!(split = get_words_len(s, c, get_word_count(s, c))))
+		return (NULL);
+	set_words(split, s, c);
 	return (split);
 }

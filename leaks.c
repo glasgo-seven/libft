@@ -24,11 +24,13 @@ char	ff(unsigned int i, char c)
 
 int		main(void)
 {
+	int j;
+	j = 0;
 	char	*str = ft_strdup("1234");
 	ft_putchar_fd('a', 1);
-	t_list	**lst;
+	t_list	*lst;
 	ft_putchar_fd('a', 1);
-	//*lst = ft_lstnew("megh");
+	lst = ft_lstnew("megh");
 	ft_putchar_fd('a', 1);
 	t_list	*elem = ft_lstnew("mda");
 	ft_putchar_fd('a', 1);
@@ -57,27 +59,27 @@ int		main(void)
 	ft_putnbr_fd(i++, 1);
 	ft_itoa(-2147483);
 	ft_putnbr_fd(i++, 1);
-	ft_lstadd_back(lst, elem);
+	ft_lstadd_back(&lst, elem);
 	ft_putnbr_fd(i++, 1);
-	ft_lstadd_front(lst, elem);
+	ft_lstadd_front(&lst, elem);
 	ft_putnbr_fd(i++, 1);
-	ft_lstclear(lst, del);
+//	ft_lstclear(&lst, NULL);
 	ft_putnbr_fd(i++, 1);
-	ft_lstdelone(elem, del);
+//	ft_lstdelone(elem, NULL);
 	ft_putnbr_fd(i++, 1);
-	*lst = ft_lstnew("megh");
+	lst = ft_lstnew("megh");
 	ft_putnbr_fd(i++, 1);
-	ft_lstiter(*lst, *f);
+	ft_lstiter(lst, *f);
 	ft_putnbr_fd(i++, 1);
 	elem = ft_lstnew("mda");
 	ft_putnbr_fd(i++, 1);
-	ft_lstadd_back(lst, elem);
+	ft_lstadd_back(&lst, elem);
 	ft_putnbr_fd(i++, 1);
-	ft_lstlast(*lst);
+	ft_lstlast(lst);
 	ft_putnbr_fd(i++, 1);
-	ft_lstmap(*lst, *_f, del);
+	ft_lstmap(lst, _f, NULL);
 	ft_putnbr_fd(i++, 1);
-	ft_lstsize(*lst);
+	ft_lstsize(lst);
 	ft_putnbr_fd(i++, 1);
 	ft_memccpy(dst, src, 66, 3);
 	ft_putnbr_fd(i++, 1);
@@ -124,6 +126,6 @@ int		main(void)
 	ft_tolower(88);
 	ft_putnbr_fd(i++, 1);
 	ft_toupper(88);
-
+	scanf("%d",&j);
 	return (0);
 }
