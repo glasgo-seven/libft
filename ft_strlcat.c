@@ -20,22 +20,16 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 
 	n = size;
 	i = 0;
-	while (n != 0 && *(dest + i) != '\0')
-	{
-		n--;
+	while (n-- != 0 && *(dest + i) != '\0')
 		i++;
-	}
 	dlen = i;
 	n = size - i;
 	if (n-- == 0)
 		return (i + ft_strlen(src));
 	while (*(src + i - dlen) != '\0')
 	{
-		if (n != 0)
-		{
+		if (n-- != 0)
 			*(dest + i) = *(src + i - dlen);
-			n--;
-		}
 		else
 			break ;
 		i++;

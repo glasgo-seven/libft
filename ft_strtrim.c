@@ -63,8 +63,7 @@ char		*ft_strtrim(char const *s1, char const *set)
 	finish = find_finish(s1, set);
 	if (finish < start)
 		return (ft_strdup(""));
-	trimmed = (char*)malloc((finish - start + 1) * sizeof(char));
-	if (trimmed == NULL)
+	if (!(trimmed = (char*)malloc((finish - start + 1) * sizeof(char))))
 		return (NULL);
 	i = start;
 	while (i < finish)

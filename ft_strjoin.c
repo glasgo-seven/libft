@@ -34,8 +34,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	s_i = 0;
 	while (*(s2 + s_i) != '\0')
 	{
-		*(joined + j_i) = *(s2 + s_i);
-		j_i++;
+		*(joined + j_i++) = *(s2 + s_i);
 		s_i++;
 	}
 	*(joined + j_i) = '\0';

@@ -22,7 +22,6 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 	if (src == NULL)
 		return (0);
 	if (n != 0)
-	{
 		while (n != 1)
 		{
 			*(dest + i) = *(src + i);
@@ -31,9 +30,7 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 			i++;
 			n--;
 		}
-		n--;
-	}
-	if (n == 0)
+	if (n == 0 || n == 1)
 	{
 		if (size != 0)
 			*(dest + i) = '\0';

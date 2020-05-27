@@ -17,7 +17,6 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	size_t	i;
 	size_t	j;
 	size_t	correct;
-	char	*rt;
 
 	if (*little == '\0')
 		return ((char*)big);
@@ -27,25 +26,17 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	i = 0;
 	j = 0;
 	correct = 0;
-	rt = (char*)big;
 	while (i <= ft_strlen(big) - ft_strlen(little) && i < len)
 	{
-		if (*(big + i) == *(little + j))
-		{
+		if (*(big + i++) == *(little + j++))
 			correct++;
-			j++;
-		}
 		else if (correct == ft_strlen(little))
-		{
-			rt = (char*)big + i - ft_strlen(little);
-			return (rt);
-		}
+			return ((char*)big + --i - ft_strlen(little));
 		else
 		{
 			j = 0;
 			correct = 0;
 		}
-		i++;
 	}
 	return (NULL);
 }
