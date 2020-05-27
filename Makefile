@@ -6,7 +6,7 @@
 #    By: sanakin <sanakin@student.21-school.ru>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/01 16:25:45 by sanakin           #+#    #+#              #
-#    Updated: 2020/05/26 17:37:39 by sanakin          ###   ########.fr        #
+#    Updated: 2020/05/27 15:57:58 by sanakin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -90,10 +90,6 @@ fclean: clean
 	rm -f libft.so
 
 re: fclean all
-
-#so:
-#	$(COMPILER) -fPIC $(FLAGS) -c *.c $(INCLUDES)
-#	$(COMPILER) -shared -o libft.so *.o 
 
 so:
 	$(COMPILER) -fPIC -shared $(OBJ_MAIN) $(OBJ_BONUS) -o libft.so

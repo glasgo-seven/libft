@@ -6,7 +6,7 @@
 /*   By: sanakin <sanakin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 16:25:27 by sanakin           #+#    #+#             */
-/*   Updated: 2020/05/26 18:33:46 by sanakin          ###   ########.fr       */
+/*   Updated: 2020/05/27 16:26:30 by sanakin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 
 	if (*little == '\0')
 		return ((char*)big);
-	if (!ft_strncmp(big, little, (ft_strlen(big) > ft_strlen(little) ? ft_strlen(big) : ft_strlen(little))))
+	if (!ft_strncmp(big, little,
+	(ft_strlen(big) > ft_strlen(little) ? ft_strlen(big) : ft_strlen(little))))
 		return ((char*)big);
 	i = 0;
 	j = 0;

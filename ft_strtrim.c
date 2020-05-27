@@ -6,7 +6,7 @@
 /*   By: sanakin <sanakin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/13 14:50:39 by sanakin           #+#    #+#             */
-/*   Updated: 2020/05/26 18:54:08 by sanakin          ###   ########.fr       */
+/*   Updated: 2020/05/27 16:39:02 by sanakin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	isinset(char const *set, char c)
 	return (0);
 }
 
-int			find_start(char const *s1, char const *set)
+static int	find_start(char const *s1, char const *set)
 {
 	size_t	i;
 
@@ -36,7 +36,7 @@ int			find_start(char const *s1, char const *set)
 	return (i);
 }
 
-int			find_finish(char const *s1, char const *set)
+static int	find_finish(char const *s1, char const *set)
 {
 	size_t	i;
 
@@ -53,6 +53,8 @@ char		*ft_strtrim(char const *s1, char const *set)
 	size_t	finish;
 	char	*trimmed;
 
+	if (s1 == NULL || set == NULL)
+		return (NULL);
 	i = 0;
 	start = 0;
 	finish = 0;

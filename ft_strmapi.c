@@ -6,7 +6,7 @@
 /*   By: sanakin <sanakin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/13 15:37:05 by sanakin           #+#    #+#             */
-/*   Updated: 2020/05/21 17:02:38 by sanakin          ###   ########.fr       */
+/*   Updated: 2020/05/27 16:24:40 by sanakin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	size_t	len;
 	char	*map;
 
+	if (s == NULL)
+		return (NULL);
 	len = ft_strlen(s);
 	map = (char*)malloc((len + 1) * sizeof(char));
 	if (map == NULL)

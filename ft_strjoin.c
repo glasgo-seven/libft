@@ -6,7 +6,7 @@
 /*   By: sanakin <sanakin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/13 14:41:13 by sanakin           #+#    #+#             */
-/*   Updated: 2020/05/26 18:25:49 by sanakin          ###   ########.fr       */
+/*   Updated: 2020/05/27 16:32:25 by sanakin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	j_i;
 	size_t	s_i;
 
+	if (s1 == NULL || s2 == NULL)
+		return (NULL);
 	joined = (char*)malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
 	if (joined == NULL)
 		return (NULL);
