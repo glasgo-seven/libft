@@ -6,11 +6,9 @@
 /*   By: sanakin <sanakin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 16:24:54 by sanakin           #+#    #+#             */
-/*   Updated: 2020/05/08 14:12:32 by sanakin          ###   ########.fr       */
+/*   Updated: 2020/05/29 01:02:41 by sanakin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int		ft_isdigit(int c)
 {

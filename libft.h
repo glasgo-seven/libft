@@ -6,7 +6,7 @@
 /*   By: sanakin <sanakin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 16:25:41 by sanakin           #+#    #+#             */
-/*   Updated: 2020/05/26 18:35:08 by sanakin          ###   ########.fr       */
+/*   Updated: 2020/05/29 01:04:31 by sanakin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,5 @@ void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *l, void *(*f)(void *), void (*del)(void *));
 
 void			*ft_free(void **array, int last);
+
 #endif

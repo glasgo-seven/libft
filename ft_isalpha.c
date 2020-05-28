@@ -6,11 +6,9 @@
 /*   By: sanakin <sanakin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 16:24:41 by sanakin           #+#    #+#             */
-/*   Updated: 2020/05/08 14:12:24 by sanakin          ###   ########.fr       */
+/*   Updated: 2020/05/29 01:02:31 by sanakin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int		ft_isalpha(int c)
 {
