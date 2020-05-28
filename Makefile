@@ -46,6 +46,7 @@ SRC_MAIN_ADD =		ft_substr.c\
 					ft_strjoin.c\
 					ft_strtrim.c\
 					ft_split.c\
+					ft_free.c\
 					ft_itoa.c\
 					ft_strmapi.c\
 					ft_putchar_fd.c\
@@ -94,4 +95,4 @@ re: fclean all
 so:
 	$(COMPILER) -fPIC -shared $(OBJ_MAIN) $(OBJ_BONUS) -o libft.so
 
-.PHONY: all clean fclean re so
+.PHONY: all clean fclean re so bonus

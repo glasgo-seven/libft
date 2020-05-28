@@ -43,7 +43,7 @@ static char	**get_words_len(char const *s, char c, int words)
 	int		word;
 
 	i = 0;
-	if (!(split = (char**)malloc(sizeof(char*) * (words + 1))))
+	if (!(split = (char**)ft_calloc(words + 1, sizeof(char*))))
 		return (NULL);
 	len = 0;
 	word = 0;
@@ -56,8 +56,8 @@ static char	**get_words_len(char const *s, char c, int words)
 			i++;
 		}
 		if (len != 0)
-			if (!(split[word++] = (char*)malloc(sizeof(char) * (len + 1))))
-				return (NULL);
+			if (!(split[word++] = (char*)ft_calloc(len + 1, sizeof(char))))
+				return (ft_free((void**)split, --word));
 		if (*(s + i) == c)
 			i++;
 	}
@@ -99,13 +99,15 @@ static void	set_words(char **split, char const *s, char c)
 char		**ft_split(char const *s, char c)
 {
 	char	**split;
+	int		words;
 
 	if (s == NULL)
 		return (NULL);
+	words = get_word_count(s, c);
 	split = NULL;
-	if (get_word_count(s, c) == 0)
+	if (words == 0)
 		return (return_zero());
-	if (!(split = get_words_len(s, c, get_word_count(s, c))))
+	if (!(split = get_words_len(s, c, words)))
 		return (NULL);
 	set_words(split, s, c);
 	return (split);
