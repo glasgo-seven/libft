@@ -6,7 +6,7 @@
 #    By: sanakin <sanakin@student.21-school.ru>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/01 16:25:45 by sanakin           #+#    #+#              #
-#    Updated: 2020/05/27 15:57:58 by sanakin          ###   ########.fr        #
+#    Updated: 2020/05/29 13:53:31 by sanakin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,24 +66,26 @@ SRC_BONUS =			ft_lstnew.c\
 OBJ_MAIN = $(SRC_MAIN_LIBC:.c=.o)
 OBJ_MAIN += $(SRC_MAIN_ADD:.c=.o)
 OBJ_BONUS = $(SRC_BONUS:.c=.o)
+override OBJ_ALL ?= $(OBJ_MAIN)
 
+DEF_FILES = $(OBJ_ALL:.o=.d)
 
 all: $(NAME)
 
-$(NAME): $(OBJ_MAIN)
+$(NAME): $(OBJ_ALL)
 	ar rc $(NAME) $?
 	ranlib $(NAME)
 
-bonus: $(OBJ_BONUS)
-	ar rc $(NAME) $?
-	ranlib $(NAME)
+bonus:
+	@make OBJ_ALL="$(OBJ_MAIN) $(OBJ_BONUS)" all
 
 %.o: %.c $(INCLUDES)
-	$(COMPILER) -c $(FLAGS) $< -o $@
+	$(COMPILER) $(FLAGS) -c $< -o $@ -MD
 
 clean:
 	rm -f $(OBJ_MAIN)
 	rm -f $(OBJ_BONUS)
+	rm -f $(DEF_FILES)
 
 fclean: clean
 	rm -f $(NAME)
