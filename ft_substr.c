@@ -6,7 +6,7 @@
 /*   By: sanakin <sanakin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/13 14:04:46 by sanakin           #+#    #+#             */
-/*   Updated: 2020/05/27 16:21:04 by sanakin          ###   ########.fr       */
+/*   Updated: 2020/05/29 12:54:36 by sanakin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	if (s == NULL)
 		return (NULL);
-	if (start < 0 || start > ft_strlen(s))
+	if (start > ft_strlen(s))
 		len = 0;
 	sub_s = (char*)malloc((len + 1) * sizeof(char));
 	if (sub_s == NULL)

@@ -6,7 +6,7 @@
 /*   By: sanakin <sanakin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/20 12:23:27 by sanakin           #+#    #+#             */
-/*   Updated: 2020/05/27 16:24:02 by sanakin          ###   ########.fr       */
+/*   Updated: 2020/05/29 13:02:07 by sanakin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,23 @@ static int	get_word_count(char const *s, char c)
 	return (words);
 }
 
+static void	*ft_free(void **array, int last)
+{
+	int	i;
+
+	i = last;
+	if (array == NULL)
+		return (NULL);
+	while (i >= 0)
+	{
+		if (array[i])
+			free((void*)array[i]);
+		i--;
+	}
+	free((void*)array);
+	return (NULL);
+}
+
 static char	**get_words_len(char const *s, char c, int words)
 {
 	int		i;
@@ -61,16 +78,6 @@ static char	**get_words_len(char const *s, char c, int words)
 		if (*(s + i) == c)
 			i++;
 	}
-	return (split);
-}
-
-static char	**return_zero(void)
-{
-	char	**split;
-
-	if (!(split = (char**)malloc(sizeof(char*) * 1)))
-		return (NULL);
-	split[0] = NULL;
 	return (split);
 }
 
@@ -106,7 +113,12 @@ char		**ft_split(char const *s, char c)
 	words = get_word_count(s, c);
 	split = NULL;
 	if (words == 0)
-		return (return_zero());
+	{
+		if (!(split = (char**)malloc(sizeof(char*) * 1)))
+			return (NULL);
+		split[0] = NULL;
+		return (split);
+	}
 	if (!(split = get_words_len(s, c, words)))
 		return (NULL);
 	set_words(split, s, c);
