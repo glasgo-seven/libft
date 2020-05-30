@@ -4,9 +4,12 @@
 *.gch
 *.o
 *.out
+*.rar
 *.txt
 
 author
+
+.*
 *main.*
 
 .idea/

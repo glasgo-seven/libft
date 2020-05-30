@@ -6,7 +6,7 @@
 /*   By: sanakin <sanakin@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 16:25:15 by sanakin           #+#    #+#             */
-/*   Updated: 2020/05/13 14:06:18 by sanakin          ###   ########.fr       */
+/*   Updated: 2020/05/30 20:24:39 by sanakin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strdup(const char *s)
 	char	*n_s;
 	size_t	i;
 
-	n_s = (char*)malloc(sizeof(*s) * ft_strlen(s) + 1);
+	n_s = (char*)malloc(sizeof(*s) * (ft_strlen(s) + 1));
 	if (n_s == NULL)
 		return (NULL);
 	i = 0;

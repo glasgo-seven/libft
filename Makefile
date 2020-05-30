@@ -6,7 +6,7 @@
 #    By: sanakin <sanakin@student.21-school.ru>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/01 16:25:45 by sanakin           #+#    #+#              #
-#    Updated: 2020/05/29 13:53:31 by sanakin          ###   ########.fr        #
+#    Updated: 2020/05/29 22:31:46 by sanakin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,7 +68,7 @@ OBJ_MAIN += $(SRC_MAIN_ADD:.c=.o)
 OBJ_BONUS = $(SRC_BONUS:.c=.o)
 override OBJ_ALL ?= $(OBJ_MAIN)
 
-DEF_FILES = $(OBJ_ALL:.o=.d)
+DEF_FILES = $(OBJ_MAIN:.o=.d) $(OBJ_BONUS:.o=.d)
 
 all: $(NAME)
 
@@ -94,6 +94,7 @@ fclean: clean
 re: fclean all
 
 so:
-	$(COMPILER) -fPIC -shared $(OBJ_MAIN) $(OBJ_BONUS) -o libft.so
+	gcc $(FLAGS) -c -fPIC $(SOURCES)
+	gcc -shared -o libft.so $(OBJ)
 
 .PHONY: all clean fclean re so bonus
