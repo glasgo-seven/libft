@@ -94,7 +94,6 @@ fclean: clean
 re: fclean all
 
 so:
-	gcc $(FLAGS) -c -fPIC $(SOURCES)
-	gcc -shared -o libft.so $(OBJ)
+	$(COMPILER) -fPIC -shared $(OBJ_MAIN) $(OBJ_BONUS) -o libft.so
 
 .PHONY: all clean fclean re so bonus
