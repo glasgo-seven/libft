@@ -77,7 +77,7 @@ $(NAME): $(OBJ_ALL)
 	ranlib $(NAME)
 
 bonus:
-	@make OBJ_ALL="$(OBJ_MAIN) $(OBJ_BONUS)" all
+	@make OBJ_ALL="$(OBJ_BONUS)" all
 
 %.o: %.c $(INCLUDES)
 	$(COMPILER) $(FLAGS) -c $< -o $@ -MD
@@ -94,6 +94,7 @@ fclean: clean
 re: fclean all
 
 so:
-	$(COMPILER) -fPIC -shared $(OBJ_MAIN) $(OBJ_BONUS) -o libft.so
+	gcc $(FLAGS) -c -fPIC $(SOURCES)
+	gcc -shared -o libft.so $(OBJ)
 
 .PHONY: all clean fclean re so bonus
