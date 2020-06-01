@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sanakin <sanakin@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: sanakin <sanakin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/30 23:37:43 by sanakin           #+#    #+#             */
-/*   Updated: 2020/05/31 21:22:47 by sanakin          ###   ########.fr       */
+/*   Updated: 2020/06/01 20:28:01 by sanakin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,3 @@ char	*ft_strnstr(const char *big, const char *small, size_t len)
 	}
 	return (NULL);
 }
-
