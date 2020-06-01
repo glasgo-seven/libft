@@ -57,7 +57,7 @@ static char	**ft_free(char **src, int i)
 	return (NULL);
 }
 
-char		**split(char const *s, char c)
+static char	**split_help(char const *s, char c)
 {
 	char	**split;
 	int		word;
@@ -91,5 +91,5 @@ char		**ft_split(char const *s, char c)
 	if (s == NULL)
 		return (NULL);
 	else
-		return (split(s, c));
+		return (split_help(s, c));
 }
