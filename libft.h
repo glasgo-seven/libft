@@ -26,6 +26,8 @@ typedef struct	s_list
 	struct s_list	*next;
 }				t_list;
 
+typedef signed long long int	s_size_f;
+
 void			*ft_memset(void *s, int c, size_t n);
 void			ft_bzero(void *s, size_t n);
 void			*ft_memcpy(void *dest, const void *src, size_t n);
@@ -71,5 +73,9 @@ void			ft_lstdelone(t_list *lst, void (*del)(void*));
 void			ft_lstclear(t_list **lst, void (*del)(void*));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *l, void *(*f)(void *), void (*del)(void *));
+
+void			ft_free(void **obj);
+char			*ft_uhex(size_t nbr);
+size_t			ft_abs(s_size_f nbr);
 
 #endif

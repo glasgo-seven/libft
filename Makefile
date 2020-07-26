@@ -63,12 +63,18 @@ SRC_BONUS =			ft_lstnew.c\
 					ft_lstiter.c\
 					ft_lstmap.c
 
+SRC_MINE =			ft_abs.c\
+					ft_free.c\
+					ft_uhex.c
+
+
 OBJ_MAIN = $(SRC_MAIN_LIBC:.c=.o)
 OBJ_MAIN += $(SRC_MAIN_ADD:.c=.o)
 OBJ_BONUS = $(SRC_BONUS:.c=.o)
+OBJ_MINE = $(SRC_MINE:.c=.o)
 override OBJ_ALL ?= $(OBJ_MAIN)
 
-DEF_FILES = $(OBJ_MAIN:.o=.d) $(OBJ_BONUS:.o=.d)
+DEF_FILES = $(OBJ_MAIN:.o=.d) $(OBJ_BONUS:.o=.d) $(OBJ_MINE:.o=.d)
 
 all: $(NAME)
 
@@ -79,12 +85,16 @@ $(NAME): $(OBJ_ALL)
 bonus:
 	@make OBJ_ALL="$(OBJ_BONUS)" all
 
+mine:
+	@make OBJ_ALL="$(OBJ_MINE)" all
+
 %.o: %.c $(INCLUDES)
 	$(COMPILER) $(FLAGS) -c $< -o $@ -MD
 
 clean:
 	rm -f $(OBJ_MAIN)
 	rm -f $(OBJ_BONUS)
+	rm -f $(OBJ_MINE)
 	rm -f $(DEF_FILES)
 
 fclean: clean
